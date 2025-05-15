@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yonii.Utils", "Yonii.Utils\Yonii.Utils.csproj", "{10C50032-BDA1-4404-81A6-44288B74B840}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yonii.Utils.UnitTests", "Yonii.Utils.UnitTests\Yonii.Utils.UnitTests.csproj", "{BD488563-C4C8-4EC2-9049-0839F202BC13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10C50032-BDA1-4404-81A6-44288B74B840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C50032-BDA1-4404-81A6-44288B74B840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C50032-BDA1-4404-81A6-44288B74B840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C50032-BDA1-4404-81A6-44288B74B840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD488563-C4C8-4EC2-9049-0839F202BC13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD488563-C4C8-4EC2-9049-0839F202BC13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD488563-C4C8-4EC2-9049-0839F202BC13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD488563-C4C8-4EC2-9049-0839F202BC13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
