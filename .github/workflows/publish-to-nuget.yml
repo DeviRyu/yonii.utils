@@ -1,0 +1,13 @@
+name: Publish package to NuGet
+run-name: ${{ github.actor }} is publishing a package to NuGet using GitHub Actions
+on:
+  push:
+    branches:
+      - master
+jobs:
+  Publish-Package-To-NuGet:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job was automatically triggered by a ${{ github.event_name }} event."
+
+  
