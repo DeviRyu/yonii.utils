@@ -19,6 +19,8 @@ jobs:
 
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v4
+        with: 
+          dotnet-version: 9.0.x
 
       - name: Run Unit Tests
         run: dotnet test Yonii.Utils.UnitTests/Yonii.Utils.UnitTests.csproj --configuration Release
@@ -35,7 +37,9 @@ jobs:
 
       # .NET Core
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v3.4.2
+        uses: actions/setup-dotnet@v4
+        with: 
+          dotnet-version: 9.0.x
 
       # Build project
       - name: Build
