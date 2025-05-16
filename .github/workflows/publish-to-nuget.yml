@@ -20,8 +20,10 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3.4.2
 
+      - run: echo "${{ env.NuGetDirectory }} or ${{ github.workspace}}/nuget"
+
       - name: Run Unit Tests
-        run: dotnet test -c Release .\src\Yonii.Utils.UnitTests
+        run: dotnet test -c Release .\Yonii.Utils.UnitTests\Yonii.Utils.UnitTests.csproj
 
   Create-NuGet:
     needs: [Run-Tests]
