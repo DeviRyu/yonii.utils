@@ -4,6 +4,10 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Authors>yonii龍神</Authors>
+        <Version>1.0.0</Version>
+        <Title>Yonii's Utilities</Title>
+        <Description>Collection of useful extensions/libs/helpers</Description>
     </PropertyGroup>
 
 </Project>
