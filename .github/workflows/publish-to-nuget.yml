@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-dotnet@v3.4.2
 
       - name: Run Unit Tests
-        run: dotnet test -c Release .\Yonii.Utils.UnitTests
+        run: dotnet test -c Release .\src\Yonii.Utils.UnitTests
 
   Create-NuGet:
     needs: [Run-Tests]
