@@ -54,7 +54,13 @@ jobs:
           updateProjectFiles: true
 
       - run: | 
-          echo "fullSemVer: ${{ env.fullSemVer }}"
+          echo "fullSemVer (env.fullSemVer) : ${{ env.fullSemVer }}"
+
+      - run: |
+          echo "FullSemVer (env.GitVersion_FullSemVer) : ${{ env.GitVersion_FullSemVer }}"
+          
+      - run: |
+          echo "FullSemVer (steps.version_step.outputs.fullSemVer) : ${{ steps.version_step.outputs.fullSemVer }}"
 
   Create-NuGet:
     needs: [run_tests, check_version]
