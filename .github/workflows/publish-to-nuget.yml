@@ -52,6 +52,7 @@ jobs:
         uses: gittools/actions/gitversion/execute@v3.2.1
         with:
           updateProjectFiles: true
+          mode: Mainline
 
       - run: | 
           echo "fullSemVer (env.fullSemVer) : ${{ env.fullSemVer }}"
