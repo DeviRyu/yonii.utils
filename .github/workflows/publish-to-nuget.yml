@@ -28,7 +28,7 @@ jobs:
   check_version:
     needs: [run_tests]
     name: Set Git Version
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     outputs:
       branchName: ${{ steps.version_step.outputs.branchName }}
       fullSemVer: ${{ steps.version_step.outputs.fullSemVer }}
