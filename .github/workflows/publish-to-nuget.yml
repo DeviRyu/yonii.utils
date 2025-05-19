@@ -65,7 +65,7 @@ jobs:
 
   create_and_deploy_nuget:
     needs: [run_tests, check_version]
-    name: Create NuGet Package
+    name: Create and Deploy NuGet Package
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
@@ -92,9 +92,10 @@ jobs:
         run: dotnet pack -c Release --no-build
 
       - name: Push nuget package
-        run: dotnet nuget push **/*.nupkg -- source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+        run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
 
   create_tag:
+    name: Create New TAG
     needs: [check_version]
     runs-on: ubuntu-latest
     steps:
@@ -109,11 +110,12 @@ jobs:
       - name: Create and push tag
         run: |
           NEW_TAG="${{ needs.check_version.outputs.GitVersion_FullSemVer }}"
-          git tag $NEW_TAG
-          echo: "Tag created: $NEW_TAG"
-          git push origin $NEW_TAG
+          git tag "${NEW_TAG}"
+          echo: "Tag created: ${NEW_TAG}"
+          git push origin "${NEW_TAG}"
 
   create_release:
+    name: Create New GitHub Release
     needs: [check_version]
     runs-on: ubuntu-latest
     steps:
@@ -124,8 +126,8 @@ jobs:
         run: |
           git fetch --tags
           NEW_TAG=$(git describe --tags --abbrev=0 origin/master)
-          echo "Latest tag from master: $NEW_TAG"
-          gh release create $NEW_TAG \
+          echo "Latest tag from master: ${NEW_TAG}"
+          gh release create "${NEW_TAG}" \
               --repo="$GITHUB_REPOSITORY" \
               --title="${NEW_TAG#v}" \
               --generate-notes \
