@@ -86,7 +86,7 @@ jobs:
 
       # Build project
       - name: Build
-        run: dotnet build -c Release
+        run: dotnet build -c Release /p:Version= ${{ env.GitVersion_FullSemVer }}
 
       - name: Pack nuget
         run: dotnet pack -c Release --no-build
@@ -111,7 +111,7 @@ jobs:
         run: |
           NEW_TAG="${{ needs.check_version.outputs.GitVersion_FullSemVer }}"
           git tag "${NEW_TAG}"
-          echo: "Tag created: ${NEW_TAG}"
+          echo "Tag created: ${NEW_TAG}"
           git push origin "${NEW_TAG}"
 
   create_release:
