@@ -86,7 +86,7 @@ jobs:
 
       # Build project
       - name: Build
-        run: dotnet build -c Release /p:Version= ${{ env.GitVersion_FullSemVer }}
+        run: dotnet build -c Release /p:Version=${{ env.GitVersion_FullSemVer }}
 
       - name: Pack nuget
         run: dotnet pack -c Release --no-build
@@ -98,6 +98,8 @@ jobs:
     name: Create New TAG
     needs: [check_version]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4.2.2
