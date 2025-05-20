@@ -84,12 +84,8 @@ jobs:
         with: 
           dotnet-version: 9.0.x
 
-      # Build project
-      - name: Build
-        run: dotnet build -c Release /p:Version=${{ env.GitVersion_FullSemVer }}
-
       - name: Pack nuget
-        run: dotnet pack -c Release --no-build
+        run: dotnet pack -c Release /p:Version=${{ env.GitVersion_FullSemVer }}
 
       - name: Push nuget package
         run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
@@ -118,7 +114,7 @@ jobs:
 
   create_release:
     name: Create New GitHub Release
-    needs: [check_version]
+    needs: [check_version, create_tag]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
