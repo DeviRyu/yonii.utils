@@ -116,6 +116,8 @@ jobs:
     name: Create New GitHub Release
     needs: [check_version, create_tag]
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4.2.2

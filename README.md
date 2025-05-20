@@ -25,7 +25,7 @@ A common use case is implementing singletons safely:
         private Logger() { }
 
         // Access the singleton instance
-        public static Logger Instance = Singleton&lt;Logger&gt;.GetInstance(() => new Logger());
+        public static Logger Instance = Singleton<Logger>.GetInstance(() => new Logger());
 
         public void Log(string message) => Console.WriteLine(message);
     }
